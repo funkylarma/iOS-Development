@@ -33,11 +33,7 @@
     return newItem;
 }
 
-- (id)init
-{
-    return [self initWithItemName:@"Item" valueInDollars:0 serialNumber:@""];
-}
-
+// Designated Initialiser
 - (id)initWithItemName:(NSString *)name valueInDollars:(int)value serialNumber:(NSString *)sNumber
 {
     // Call the superclass's designated initialiser
@@ -55,6 +51,16 @@
     
     // Return the address of the newly initlised object
     return self;
+}
+
+- (id)init
+{
+    return [self initWithItemName:@"Item" valueInDollars:0 serialNumber:@""];
+}
+
+- (id)initWithItemName:(NSString *)name serialNumber:(NSString *)sNumber
+{
+    return [self initWithItemName:name valueInDollars:0 serialNumber:sNumber];
 }
 
 - (void)setItemName:(NSString *)str
