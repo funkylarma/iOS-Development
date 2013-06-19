@@ -9,6 +9,10 @@
 #import "BNRItem.h"
 
 @implementation BNRItem
+@synthesize itemName, containedItem, container, serialNumber, valueInDollars, dateCreated;
+
+#pragma mark -
+#pragma mark Class Methods
 
 + (id)randomItem
 {
@@ -32,6 +36,9 @@
     
     return newItem;
 }
+
+#pragma mark -
+#pragma mark Memory Management
 
 // Designated Initialiser
 - (id)initWithItemName:(NSString *)name valueInDollars:(int)value serialNumber:(NSString *)sNumber
@@ -63,40 +70,22 @@
     return [self initWithItemName:name valueInDollars:0 serialNumber:sNumber];
 }
 
-- (void)setItemName:(NSString *)str
+- (void)dealloc
 {
-    itemName = str;
+    NSLog(@"Destroyed: %@", self);
 }
 
-- (NSString *)itemName
+#pragma mark -
+#pragma mark Custom Getters and Setters
+
+- (void)setContainedItem:(BNRItem *)i
 {
-    return itemName;
+    containedItem = i;
+    [i setContainer:self];
 }
 
-- (void)setSerialNumber:(NSString *)str
-{
-    serialNumber = str;
-}
-
-- (NSString *)serialNumber
-{
-    return serialNumber;
-}
-
-- (void)setValueInDollars:(int)i
-{
-    valueInDollars = i;
-}
-
-- (int)valueInDollars
-{
-    return valueInDollars;
-}
-
-- (NSDate *)dateCreated
-{
-    return dateCreated;
-}
+#pragma mark -
+#pragma mark Over-rides
 
 - (NSString *)description
 {
