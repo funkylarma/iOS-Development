@@ -42,9 +42,6 @@
 {
     // Tell the map kit map to update
     [worldView setShowsUserLocation:YES];
-    
-    // Set the map to satellite view
-    [worldView setMapType:MKMapTypeSatellite];
 }
 
 #pragma mark -
@@ -127,6 +124,23 @@
     [activityIndicator stopAnimating];
     [locationTitleField setHidden:NO];
     [locationManager stopUpdatingLocation];
+}
+
+- (IBAction)changeMap:(UISegmentedControl*)sender
+{
+    switch ([sender selectedSegmentIndex]) {
+        case 0:
+            [worldView setMapType:MKMapTypeStandard];
+            break;
+            
+        case 1:
+            [worldView setMapType:MKMapTypeSatellite];
+            break;
+        
+        case 2:
+            [worldView setMapType:MKMapTypeHybrid];
+            break;
+    }
 }
 
 @end
