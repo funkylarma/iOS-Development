@@ -42,6 +42,9 @@
 {
     // Tell the map kit map to update
     [worldView setShowsUserLocation:YES];
+    
+    // Set the map to satellite view
+    [worldView setMapType:MKMapTypeSatellite];
 }
 
 #pragma mark -
