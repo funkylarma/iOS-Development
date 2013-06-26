@@ -19,6 +19,8 @@
 		66000FAE17724EEC00F19FCE /* WhereamiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66000FAD17724EEC00F19FCE /* WhereamiViewController.m */; };
 		66000FB117724EEC00F19FCE /* WhereamiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66000FAF17724EEC00F19FCE /* WhereamiViewController.xib */; };
 		66000FB817724F1000F19FCE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66000FB717724F1000F19FCE /* CoreLocation.framework */; };
+		666088B317738F9E0098AFCC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 666088B217738F9E0098AFCC /* MapKit.framework */; };
+		666D758E177A37DB00A7A789 /* BNRMapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 666D758D177A37DB00A7A789 /* BNRMapPoint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,9 @@
 		66000FAD17724EEC00F19FCE /* WhereamiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhereamiViewController.m; sourceTree = "<group>"; };
 		66000FB017724EEC00F19FCE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WhereamiViewController.xib; sourceTree = "<group>"; };
 		66000FB717724F1000F19FCE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		666088B217738F9E0098AFCC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		666D758C177A37DB00A7A789 /* BNRMapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRMapPoint.h; sourceTree = "<group>"; };
+		666D758D177A37DB00A7A789 /* BNRMapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRMapPoint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				666088B317738F9E0098AFCC /* MapKit.framework in Frameworks */,
 				66000FB817724F1000F19FCE /* CoreLocation.framework in Frameworks */,
 				66000F9517724EEC00F19FCE /* UIKit.framework in Frameworks */,
 				66000F9717724EEC00F19FCE /* Foundation.framework in Frameworks */,
@@ -59,7 +65,6 @@
 		66000F8817724EEC00F19FCE = {
 			isa = PBXGroup;
 			children = (
-				66000FB717724F1000F19FCE /* CoreLocation.framework */,
 				66000F9A17724EEC00F19FCE /* Whereami */,
 				66000F9317724EEC00F19FCE /* Frameworks */,
 				66000F9217724EEC00F19FCE /* Products */,
@@ -77,6 +82,8 @@
 		66000F9317724EEC00F19FCE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				666088B217738F9E0098AFCC /* MapKit.framework */,
+				66000FB717724F1000F19FCE /* CoreLocation.framework */,
 				66000F9417724EEC00F19FCE /* UIKit.framework */,
 				66000F9617724EEC00F19FCE /* Foundation.framework */,
 				66000F9817724EEC00F19FCE /* CoreGraphics.framework */,
@@ -87,11 +94,9 @@
 		66000F9A17724EEC00F19FCE /* Whereami */ = {
 			isa = PBXGroup;
 			children = (
-				66000FA317724EEC00F19FCE /* WhereamiAppDelegate.h */,
-				66000FA417724EEC00F19FCE /* WhereamiAppDelegate.m */,
-				66000FAC17724EEC00F19FCE /* WhereamiViewController.h */,
-				66000FAD17724EEC00F19FCE /* WhereamiViewController.m */,
-				66000FAF17724EEC00F19FCE /* WhereamiViewController.xib */,
+				666D758F177A37E500A7A789 /* Models */,
+				666D7591177A380C00A7A789 /* Views */,
+				666D7590177A380300A7A789 /* Controllers */,
 				66000F9B17724EEC00F19FCE /* Supporting Files */,
 			);
 			path = Whereami;
@@ -100,6 +105,8 @@
 		66000F9B17724EEC00F19FCE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				66000FA317724EEC00F19FCE /* WhereamiAppDelegate.h */,
+				66000FA417724EEC00F19FCE /* WhereamiAppDelegate.m */,
 				66000F9C17724EEC00F19FCE /* Whereami-Info.plist */,
 				66000F9D17724EEC00F19FCE /* InfoPlist.strings */,
 				66000FA017724EEC00F19FCE /* main.m */,
@@ -109,6 +116,32 @@
 				66000FAA17724EEC00F19FCE /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		666D758F177A37E500A7A789 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				666D758C177A37DB00A7A789 /* BNRMapPoint.h */,
+				666D758D177A37DB00A7A789 /* BNRMapPoint.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		666D7590177A380300A7A789 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				66000FAC17724EEC00F19FCE /* WhereamiViewController.h */,
+				66000FAD17724EEC00F19FCE /* WhereamiViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		666D7591177A380C00A7A789 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				66000FAF17724EEC00F19FCE /* WhereamiViewController.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +214,7 @@
 				66000FA117724EEC00F19FCE /* main.m in Sources */,
 				66000FA517724EEC00F19FCE /* WhereamiAppDelegate.m in Sources */,
 				66000FAE17724EEC00F19FCE /* WhereamiViewController.m in Sources */,
+				666D758E177A37DB00A7A789 /* BNRMapPoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +337,7 @@
 				66000FB617724EEC00F19FCE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
