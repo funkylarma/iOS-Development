@@ -10,4 +10,7 @@
 
 @interface SVDViewController : UIViewController
 
+- (IBAction)buttonPressed:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+
 @end
