@@ -14,9 +14,32 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
     // Override point for customization after application launch.
-    HypnosisterView *view = [[HypnosisterView alloc] initWithFrame:[[self window] bounds]];
-    [[self window] addSubview:view];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    
+    CGRect screenRect = [[self window] bounds];
+    
+    // Create the UIScrollView to have the size of the window
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
+    
+    [scrollView setMinimumZoomScale:1.0];
+    [scrollView setMaximumZoomScale:5.0];
+    
+    [scrollView setDelegate:self];
+    
+    [[self window] addSubview:scrollView];
+    
+    // Create the HypnosisView with a frame that is twice the size of the screen
+    CGRect bigRect = screenRect;
+
+    view = [[HypnosisterView alloc] initWithFrame:screenRect];
+    
+    // Add the HypnosisView as a subview of the scrollView
+    [scrollView addSubview:view];
+    
+    // Tell the scrollView how big its virtual world is
+    [scrollView setContentSize:bigRect.size];
     
     BOOL success = [view becomeFirstResponder];
     if (success) {
@@ -28,6 +51,10 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return view;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
