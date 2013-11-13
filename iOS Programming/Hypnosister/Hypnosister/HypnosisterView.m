@@ -15,6 +15,7 @@
     if (self) {
         // All HynposisViews start with a clear background
         [self setBackgroundColor:[UIColor clearColor]];
+        [self setCircleColour:[UIColor lightGrayColor]];
     }
     return self;
 }
@@ -36,7 +37,7 @@
     CGContextSetLineWidth(ctx, 10);
     
     // The colour of the line should be grey
-    [[UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1.0] setStroke];
+    [[self circleColour] setStroke];
     
     // Draw concentric circles from the outside in
     for (float currentRadius = maxRadius; currentRadius > 0; currentRadius -= 20) {
@@ -68,6 +69,22 @@
     // Draw the string
     [text drawInRect:textRect withAttributes:@{NSFontAttributeName:font}];
     
+}
+
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    if (motion == UIEventSubtypeMotionShake) {
+        NSLog(@"Device started shaking");
+        [self setCircleColour:[UIColor redColor]];
+    }
+}
+
+- (void)setCircleColour:(UIColor *)circleColour {
+    _circleColour = circleColour;
+    [self setNeedsDisplay];
 }
 
 @end
