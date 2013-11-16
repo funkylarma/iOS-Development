@@ -34,4 +34,14 @@
  */
 - (BNRItem *)createItem;
 
+/**
+ Removes a BNRItem from the allItems NSMutableArray
+ */
+- (void)removeItem:(BNRItem *)p;
+
+/**
+ Moves a BNRItem from one position to another in the allItems NSMutableArray
+ */
+- (void)moveItemAtIndex:(int)from toIndex:(int)to;
+
 @end

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		660FE6BD183615AF0061F791 /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 660FE6BC183615AF0061F791 /* ItemsViewController.m */; };
+		66A893051836E9E200C7352B /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66A893041836E9E200C7352B /* HeaderView.xib */; };
 		66D2554918365143005DCBCF /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D2554818365143005DCBCF /* BNRItem.m */; };
 		66D2554D1836522C005DCBCF /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D2554C1836522C005DCBCF /* BNRItemStore.m */; };
 		66DAAD8E183506AF007751D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66DAAD8D183506AF007751D2 /* Foundation.framework */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		660FE6BB183615AF0061F791 /* ItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsViewController.h; sourceTree = "<group>"; };
 		660FE6BC183615AF0061F791 /* ItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsViewController.m; sourceTree = "<group>"; };
+		66A893041836E9E200C7352B /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		66D2554718365143005DCBCF /* BNRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItem.h; sourceTree = "<group>"; };
 		66D2554818365143005DCBCF /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItem.m; sourceTree = "<group>"; };
 		66D2554B1836522C005DCBCF /* BNRItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItemStore.h; sourceTree = "<group>"; };
@@ -90,6 +92,13 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		66A893061836EA1D00C7352B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		66D2554A183651F9005DCBCF /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,8 +143,10 @@
 		66DAAD93183506AF007751D2 /* Homepwner */ = {
 			isa = PBXGroup;
 			children = (
+				66A893041836E9E200C7352B /* HeaderView.xib */,
 				660FE6BE183615DC0061F791 /* Controllers */,
 				66D2554A183651F9005DCBCF /* Models */,
+				66A893061836EA1D00C7352B /* Views */,
 				66DAAD9C183506AF007751D2 /* HomepwnerAppDelegate.h */,
 				66DAAD9D183506AF007751D2 /* HomepwnerAppDelegate.m */,
 				66DAAD94183506AF007751D2 /* Supporting Files */,
@@ -249,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66DAAD98183506AF007751D2 /* InfoPlist.strings in Resources */,
+				66A893051836E9E200C7352B /* HeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
