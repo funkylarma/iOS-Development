@@ -13,7 +13,8 @@
 
 #pragma mark - Class Method Declarations
 
-+ (BNRItemStore *)sharedStore {
++ (BNRItemStore *)sharedStore
+{
     static BNRItemStore *sharedStored = nil;
     if (!sharedStored) {
         sharedStored = [[super allocWithZone:nil] init];
@@ -22,13 +23,15 @@
     return sharedStored;
 }
 
-+ (id)allocWithZone:(struct _NSZone *)zone {
++ (id)allocWithZone:(struct _NSZone *)zone
+{
     return [self sharedStore];
 }
 
 #pragma mark - Initialisation
 
-- (id)init {
+- (id)init
+{
     self = [super init];
     if (self) {
         allItems = [[NSMutableArray alloc] init];
@@ -38,24 +41,26 @@
 
 #pragma mark - Instance Methods
 
-- (NSArray *)allItems {
+- (NSArray *)allItems
+{
     return allItems;
 }
 
-- (BNRItem *)createItem {
+- (BNRItem *)createItem
+{
     BNRItem *p = [BNRItem randomItem];
     [allItems addObject:p];
     return p;
 }
 
-- (void)removeItem:(BNRItem *)p {
-    
+- (void)removeItem:(BNRItem *)p
+{
     // Remove the BNRItem
     [allItems removeObjectIdenticalTo:p];
 }
 
-- (void)moveItemAtIndex:(int)from toIndex:(int)to {
-    
+- (void)moveItemAtIndex:(int)from toIndex:(int)to
+{
     // If there is no move
     if (from == to) {
         return;

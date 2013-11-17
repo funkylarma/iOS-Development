@@ -9,6 +9,7 @@
 #import "ItemsViewController.h"
 #import "BNRItemStore.h"
 #import "BNRItem.h"
+#import "DetailViewController.h"
 
 @implementation ItemsViewController
 
@@ -26,21 +27,32 @@
     return self;
 }
 
-- (id)initWithStyle:(UITableViewStyle)style {
-    
+- (id)initWithStyle:(UITableViewStyle)style
+{
     // Call the base initializer
     return [self init];
 }
 
+#pragma mark - View Lifecycle
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    // Reload the tableview data
+    [[self tableView] reloadData];
+}
+
 #pragma mark - UITableView DataSource Methods
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the sharedStore array
     return [[[BNRItemStore sharedStore] allItems] count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     // Check for a reusable cell first, use that if it exists
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
     
@@ -56,19 +68,20 @@
     return cell;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    // Return the HeaderView.xib
     return [self headerView];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
     return [[self headerView] bounds].size.height;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+forRowAtIndexPath:(NSIndexPath *)indexPath
+{
     // If the table is asking to commit a delete command
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         BNRItemStore *ps = [BNRItemStore sharedStore];
@@ -83,16 +96,31 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
-      toIndexPath:(NSIndexPath *)destinationIndexPath {
-    
+      toIndexPath:(NSIndexPath *)destinationIndexPath
+{
     // Tell the model to move the item
     [[BNRItemStore sharedStore] moveItemAtIndex:[sourceIndexPath row] toIndex:[destinationIndexPath row]];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Create an instance of DetailsViewController
+    DetailViewController *detailViewController = [[DetailViewController alloc] init];
+    
+    NSArray *items = [[BNRItemStore sharedStore] allItems];
+    BNRItem *selectedItem = [items objectAtIndex:[indexPath row]];
+    
+    // Give detail view controller a pointer to the item object in row
+    [detailViewController setItem:selectedItem];
+    
+    // Push it onto the top of the navigation controllers stack
+    [[self navigationController] pushViewController:detailViewController animated:YES];
+}
+
 #pragma mark - HeaderView
 
-- (UIView *)headerView {
-    
+- (UIView *)headerView
+{
     // If we have not loaded the headerView yet
     if (!headerView) {
         
@@ -105,8 +133,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 
 #pragma mark - IBActions
 
-- (IBAction)toggleEditingMode:(id)sender {
-    
+- (IBAction)toggleEditingMode:(id)sender
+{
     // If we are currently in editing mode
     if ([self isEditing]) {
         
@@ -125,8 +153,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     }
 }
 
-- (IBAction)addNewItem:(id)sender {
-    
+- (IBAction)addNewItem:(id)sender
+{
     // Create a new BNRItem and add it to the store
     BNRItem *newItem = [[BNRItemStore sharedStore] createItem];
     

@@ -14,7 +14,8 @@
 #pragma mark -
 #pragma mark Class Methods
 
-+ (id)randomItem {
++ (id)randomItem
+{
     // Create an array of three adjectives
     NSArray *randomAdjectiveList = @[@"Fluffy", @"Rusty", @"Shiny"];
     
@@ -39,7 +40,8 @@
 #pragma mark - Initialisers
 
 // Designated Initialiser
-- (id)initWithItemName:(NSString *)name valueInDollars:(int)value serialNumber:(NSString *)sNumber {
+- (id)initWithItemName:(NSString *)name valueInDollars:(int)value serialNumber:(NSString *)sNumber
+{
     // Call the superclass's designated initialiser
     self = [super init];
     
@@ -57,30 +59,35 @@
     return self;
 }
 
-- (id)init {
+- (id)init
+{
     return [self initWithItemName:@"Item" valueInDollars:0 serialNumber:@""];
 }
 
-- (id)initWithItemName:(NSString *)name serialNumber:(NSString *)sNumber {
+- (id)initWithItemName:(NSString *)name serialNumber:(NSString *)sNumber
+{
     return [self initWithItemName:name valueInDollars:0 serialNumber:sNumber];
 }
 
 #pragma mark - Memory Management
 
-- (void)dealloc {
+- (void)dealloc
+{
     NSLog(@"Destroyed: %@", self);
 }
 
 #pragma mark - Custom Getters and Setters
 
-- (void)setContainedItem:(BNRItem *)i {
+- (void)setContainedItem:(BNRItem *)i
+{
     containedItem = i;
     [i setContainer:self];
 }
 
 #pragma mark - Over-rides
 
-- (NSString *)description {
+- (NSString *)description
+{
     NSString *descriptionString = [[NSString alloc] initWithFormat:@"%@ (%@): Worth $%d, recorded on %@", itemName, serialNumber, valueInDollars, dateCreated];
     return descriptionString;
 }
