@@ -53,4 +53,12 @@
     [[self item] setValueInDollars:[[[self valueField] text] intValue]];
 }
 
+#pragma mark - Custom Getters and Setters
+
+- (void)setItem:(BNRItem *)item
+{
+    _item = item;
+    [[self navigationItem] setTitle:[item itemName]];
+}
+
 @end

@@ -10,7 +10,6 @@
 		660FE6BD183615AF0061F791 /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 660FE6BC183615AF0061F791 /* ItemsViewController.m */; };
 		66D173F01838217C00EFC5CF /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D173ED1838217C00EFC5CF /* BNRItem.m */; };
 		66D173F11838217C00EFC5CF /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D173EF1838217C00EFC5CF /* BNRItemStore.m */; };
-		66D173F31838263000EFC5CF /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66D173F21838263000EFC5CF /* HeaderView.xib */; };
 		66D173F7183826E400EFC5CF /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D173F5183826E400EFC5CF /* DetailViewController.m */; };
 		66D173F8183826E400EFC5CF /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66D173F6183826E400EFC5CF /* DetailViewController.xib */; };
 		66DAAD8E183506AF007751D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66DAAD8D183506AF007751D2 /* Foundation.framework */; };
@@ -43,7 +42,6 @@
 		66D173ED1838217C00EFC5CF /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRItem.m; path = Models/BNRItem.m; sourceTree = "<group>"; };
 		66D173EE1838217C00EFC5CF /* BNRItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRItemStore.h; path = Models/BNRItemStore.h; sourceTree = "<group>"; };
 		66D173EF1838217C00EFC5CF /* BNRItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRItemStore.m; path = Models/BNRItemStore.m; sourceTree = "<group>"; };
-		66D173F21838263000EFC5CF /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		66D173F4183826E400EFC5CF /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		66D173F5183826E400EFC5CF /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		66D173F6183826E400EFC5CF /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 		66A893061836EA1D00C7352B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				66D173F21838263000EFC5CF /* HeaderView.xib */,
 				66D173F6183826E400EFC5CF /* DetailViewController.xib */,
 			);
 			name = Views;
@@ -267,7 +264,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66D173F31838263000EFC5CF /* HeaderView.xib in Resources */,
 				66D173F8183826E400EFC5CF /* DetailViewController.xib in Resources */,
 				66DAAD98183506AF007751D2 /* InfoPlist.strings in Resources */,
 			);
