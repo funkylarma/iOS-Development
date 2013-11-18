@@ -61,4 +61,22 @@
     [[self navigationItem] setTitle:[item itemName]];
 }
 
+#pragma mark - IBActions
+
+- (IBAction)takePicture:(id)sender
+{
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    
+    // If our device has a camera
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    } else {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+    
+    [imagePicker setDelegate:self];
+    
+    // Place image picker on the screen
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
 @end
